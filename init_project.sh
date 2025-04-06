@@ -14,11 +14,17 @@ cd "$1" || exit
 rm -rf .git
 git init
 
+# Copy .env.example to .env if exists
+if [ -f ".env.example" ]; then
+  cp .env.example .env
+  echo "📝 .env file created from .env.example"
+else
+  echo "⚠️  .env.example not found. Please create .env manually."
+fi
+
 echo "✅ Done. Project '$1' is ready."
 echo "💡 Next steps:"
 echo "  cd $1"
 echo "  python -m venv venv && source venv/bin/activate"
 echo "  pip install -r requirements.txt"
-echo "  cp .env.example .env"
 echo "  uvicorn main:app --reload"
-
