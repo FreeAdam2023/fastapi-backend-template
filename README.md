@@ -1,16 +1,17 @@
 app/
 ├── api/
 │   └── v1/
-│       └── endpoints/
-│           ├── auth.py         ✅ 基础登录注册
-│           ├── status.py       ✅ 健康检查
-│           └── user.py         ✅ 用户信息获取
-│       └── api.py              ✅ 汇总 router
-├── core/                       ✅ 日志 / 国际化 / 配置 / 安全 / db 等
-├── constants/                 ✅ token 常量
-├── dependencies/              ✅ Depends 权限模块
-├── schemas/                   ✅ Pydantic 模型（你还没截图，默认你有）
-├── models/                    ✅ 数据库模型（你有 user、user_token）
+│       ├── endpoints/
+│       │   ├── auth.py           # Login and authentication endpoints
+│       │   ├── status.py         # Health check endpoints
+│       │   └── user.py           # User-related API endpoints
+│       └── api.py                # Main API router
+├── core/                         # Core modules: config, logging, i18n, security, database init
+├── constants/                    # Shared constants (e.g. token config)
+├── dependencies/                 # Dependency injection modules (e.g. current_user, permissions)
+├── schemas/                      # Pydantic schemas for request/response models
+├── models/                       # Database models (e.g. User, UserToken)
+
 
 
 
