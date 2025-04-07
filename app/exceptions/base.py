@@ -20,3 +20,8 @@ class BusinessException(HTTPException):
                 "message": message
             }
         )
+
+
+class NotFoundException(BusinessException):
+    def __init__(self, message: str = "Resource not found"):
+        super().__init__(code="NOT_FOUND", message=message, status_code=404)

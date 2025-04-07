@@ -7,15 +7,14 @@ import os
 from dotenv import load_dotenv
 from pydantic_settings import BaseSettings
 
-# 加载 .env 文件中的环境变量
-load_dotenv()
+# Auto-detect environment: use .env.test for testing
+env_file = ".env.test" if os.getenv("ENVIRONMENT") == "test" else ".env"
+load_dotenv(dotenv_path=env_file)
 
 
 class Settings(BaseSettings):
-
     # 应用基本配置
-    PROJECT_VERSION: str = "1.0.0"
-    ENVIRONMENT: str = "development"
+    ENVIRONMENT: str = "dev"
     APP_NAME: str = os.getenv("APP_NAME", "3DGates")
     DEBUG: bool = os.getenv("DEBUG", "True") == "True"
 
